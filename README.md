@@ -10,11 +10,16 @@
 
 
 #### Virtual Environment - virtualenv 
-* Run our virtual environment to create python packages just for this project in a folder we can name as `venv` with `virtualenv venv`.
+* Create our virtual environment to install python packages just for this project in a folder we can name as `venv` with `virtualenv venv`.
 * On windows to run our virtual environment within GitBash -  `source venv/Scripts/activate`
 
 ##### Using Django with virtualenv
 * Install django within the virtual env with `pip install django`
-* To createa project within out venv enviorment and folder - `django-admin startproject myems .`
-* To print out the current packages you've installed within your virtual enviroment `pip fireeze`.
+* To create a project within our venv environment and folder - `django-admin startproject myems .`
+* To print out the current packages you've installed within your virtual enviroment `pip freeze`.
 * Create a `requirements.txt` file with all dependencies with `pip freeze > requirements.txt`.
+
+* Note: to install a project based on the `requirements.txt` file 
+```
+pip install -r requirements.txt
+```
