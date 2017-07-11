@@ -45,3 +45,7 @@ DATABASES = {
 ```
 
 * Run `pip install django psycopg2` to install psycopg2 within the virtual environment.
+* Update `requirements.txt` file with all dependencies with `pip freeze > requirements.txt`.
+* Run server with `python manage.py runserver` to check if our app is connected succesfully.
+* Note: Change default on server with `python manage.py runserver 8083`.
+ 
