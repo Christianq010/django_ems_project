@@ -8,6 +8,11 @@
 * pgAdmin - 
 * virtualenv- 
 
+#### Additional Resources 
+* psycorpg - http://initd.org/psycopg/
+
+#### Setting up our Database
+* 
 
 #### Virtual Environment - virtualenv 
 * Create our virtual environment to install python packages just for this project in a folder we can name as `venv` with `virtualenv venv`.
@@ -23,3 +28,20 @@
 ```
 pip install -r requirements.txt
 ```
+
+* Edit main `settings.py` to include the following code for paramters we specified when setting up our database.
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {'options': '-c search_path=public'},
+        'NAME': 'employees',
+        'USER': 'postgres',
+        'PASSWORD': '********',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
+
+* 
