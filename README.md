@@ -16,7 +16,9 @@
 
 #### Virtual Environment - virtualenv 
 * Create our virtual environment to install python packages just for this project in a folder we can name as `venv` with `virtualenv venv`.
-* On windows to run our virtual environment within GitBash -  `source venv/Scripts/activate`
+* To run our virtual environment within GitBash /Linux -  `source venv/Scripts/activate`
+* On windows to run our virtual environment -  `venv\Scripts\activate.bat`
+* To deactivate - `source venv\Scripts\deactivate`
 
 ##### Using Django with virtualenv
 * Install django within the virtual env with `pip install django`
@@ -48,4 +50,8 @@ DATABASES = {
 * Update `requirements.txt` file with all dependencies with `pip freeze > requirements.txt`.
 * Run server with `python manage.py runserver` to check if our app is connected succesfully.
 * Note: Change default on server with `python manage.py runserver 8083`.
- 
+* Make migrations `python manage.py migrate`.
+* Control the state of our Db migrations with `python manage.py makemigrations myems`.
+
+* To use our admin panel, create a super user with `python manage.py createsuperuser` (User: admin, email: christianq010@gmail.com, password: ******)
+
