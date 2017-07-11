@@ -44,4 +44,4 @@ DATABASES = {
 }
 ```
 
-* 
+* Run `pip install django psycopg2` to install psycopg2 within the virtual environment.
