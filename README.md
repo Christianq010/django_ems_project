@@ -55,3 +55,6 @@ DATABASES = {
 
 * To use our admin panel, create a super user with `python manage.py createsuperuser` (User: admin, email: christianq010@gmail.com, password: ******)
 
+
+#### Django - Models 
+* 
