@@ -70,10 +70,14 @@ DATABASES = {
 * One approach is commenting out the class and running `makemigrations` and `migrate` commands again.
 * Another approach is to physically delete the table via pgAdmin. Clean it up by removing related rows in the `django_migrations` and `auth_permission` tables. Delete the unused files in the project `migrations` folder.
 
-##### Database First Approach
+#### Database First Approach
 * Add `models.py` and `__init__.py` files from `myems` directory to `feedback` directory and delete the migrations folder in `myems`.
 * Add `feedback` directory to installed apps in `myems` `settings.py`.
 * Make migrations with `python manage.py makemigrations feedback`. and `migrate` as well.
 
 * Use `python manage.py inspectdb` to inspect the DB in an all class format.
 * Run `python manage.py inspectdb > myems/models.py` to save. 
+* Clean up our new `myems` `models.py`.
+* Run `python manage.py makemigrations`.
+* Run `python manage.py makemigrations myems`.
+* 
