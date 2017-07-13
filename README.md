@@ -60,4 +60,14 @@ DATABASES = {
 ##### Model First Approach
 
 * Add the `models.py` file to our `ems` folder and add our imports and classes.
-* 
+* Use [Django meta Data docs](https://docs.djangoproject.com/en/1.11/ref/models/options/) to name table or order by etc.
+* In the virtual environment run `python manage.py makemigrations myems`.
+* To find out what SQL command was be executed by Django run `python manage.py sqlmigrate myems 0001_initial`.
+* Run migrate after making migrations with `python manage.py migrate`.
+* To add or remove a column after initially setting up the table, just run `makemigrations` & `migrate` command again and new migrations files will be created.
+
+*Deleting tables*
+* One approach is commenting out the class and running `makemigrations` and `migrate` commands again.
+* Another approach is to hpysically delete the table via pgAdmin. Clean it up by removing related rows in the `django_migrations` and `auth_permission` tables. Delete the unused files in the project `migrations` folder.
+
+##### Database First Approach
