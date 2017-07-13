@@ -80,4 +80,4 @@ DATABASES = {
 * Clean up our new `myems` `models.py`.
 * Run `python manage.py makemigrations`.
 * Run `python manage.py makemigrations myems`.
-* 
+* Fake migrations by `python manage.py migrate --fake myems 0001_initial`.
