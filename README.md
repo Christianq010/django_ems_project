@@ -57,4 +57,7 @@ DATABASES = {
 
 
 #### Django - Models 
+##### Model First Approach
+
+* Add the `models.py` file to our `ems` folder and add our imports and classes.
 * 
