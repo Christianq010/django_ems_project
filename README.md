@@ -94,34 +94,13 @@ DATABASES = {
 >>> print querySet
 ```
 
-* To overide the results of our data from string representations to the actual data, modify the class from `models.py` and run the code above again in the shell.
-
-* Filtering Data - (case sensitive)
-
-```python
-Employee.objects.filter(first_name_icontains='Geo')
-```
-* Non case sensitive
+* To overide the results of our data from string representations to the actual data, modify the class from `models.py`. Restart and run the code above again in the shell.
+* Look at other examples of queries in the `django-queries.md` file.
+* To handle a case where a value for a query may not exist in the db, we could use a try / catch block for exceptions 
 
 ```python
-Employee.objects.filter(first_name_contains='Geo')
-```
-
-* Filter Salary data
-
-```python
->>> from myems.models import Salaries
->>>
->>> Salaries.objects.filter(salary__gte=60000)
-```
-
-* Filter by Employee Sex
-
-```python
->>> Employee.objects.filter(gender='F')
-```
-or 
-
-```python
->>> Employee.objects.exclude(gender='M')
+>>> try:
+...     Employee.obejects.get(pk=1)
+... except Employee.DoesNotExist:
+...     print "Sorry! Record not found"
 ```
