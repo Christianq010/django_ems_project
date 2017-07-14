@@ -81,3 +81,18 @@ DATABASES = {
 * Run `python manage.py makemigrations`.
 * Run `python manage.py makemigrations myems`.
 * Fake migrations by `python manage.py migrate --fake myems 0001_initial`.
+
+
+#### Django - QuerySets 
+* To open the python shell , type `python` into the terminal.
+* To open the django shell, run `python manage.py shell`.
+* In the django shell - 
+
+```python
+>>> from myems.models import Employee
+>>>
+>>> querySet = Employee.objects.all()
+>>> print querySet
+```
+
+
