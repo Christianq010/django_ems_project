@@ -95,4 +95,4 @@ DATABASES = {
 >>> print querySet
 ```
 
-* To overide the results of our data from string representations to the actual data, modify the class from `models.py`.
+* To overide the results of our data from string representations to the actual data, modify the class from `models.py` and run the code above again in the shell.
