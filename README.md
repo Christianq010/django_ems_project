@@ -98,4 +98,5 @@ DATABASES = {
 * Look at other examples of queries in the `django-queries.md` file.
 
 #### Django - Admin
-* Register Django admin for our EMS data. 
+* Register Django admin for our EMS data.
+* Edit custom fields on our admin page to reflect feedback model.
