@@ -96,11 +96,4 @@ DATABASES = {
 
 * To overide the results of our data from string representations to the actual data, modify the class from `models.py`. Restart and run the code above again in the shell.
 * Look at other examples of queries in the `django-queries.md` file.
-* To handle a case where a value for a query may not exist in the db, we could use a try / catch block for exceptions 
 
-```python
->>> try:
-...     Employee.obejects.get(pk=1)
-... except Employee.DoesNotExist:
-...     print "Sorry! Record not found"
-```
