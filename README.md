@@ -74,7 +74,6 @@ DATABASES = {
 * Add `models.py` and `__init__.py` files from `myems` directory to `feedback` directory and delete the migrations folder in `myems`.
 * Add `feedback` directory to installed apps in `myems` `settings.py`.
 * Make migrations with `python manage.py makemigrations feedback`. and `migrate` as well.
-
 * Use `python manage.py inspectdb` to inspect the DB in an all class format.
 * Run `python manage.py inspectdb > myems/models.py` to save. 
 * Clean up our new `myems` `models.py`.
@@ -96,3 +95,33 @@ DATABASES = {
 ```
 
 * To overide the results of our data from string representations to the actual data, modify the class from `models.py` and run the code above again in the shell.
+
+* Filtering Data - (case sensitive)
+
+```python
+Employee.objects.filter(first_name_icontains='Geo')
+```
+* Non case sensitive
+
+```python
+Employee.objects.filter(first_name_contains='Geo')
+```
+
+* Filter Salary data
+
+```python
+>>> from myems.models import Salaries
+>>>
+>>> Salaries.objects.filter(salary__gte=60000)
+```
+
+* Filter by Employee Sex
+
+```python
+>>> Employee.objects.filter(gender='F')
+```
+or 
+
+```python
+>>> Employee.objects.exclude(gender='M')
+```
