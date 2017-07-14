@@ -24,6 +24,9 @@ class Employee(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     hire_date = models.DateField()
 
+    def __str__(self):
+        return "first_name=%s, last_name=%s" % (self.first_name, self.last_name)
+
     class Meta:
         db_table = 'employees'
 
