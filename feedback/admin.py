@@ -5,7 +5,8 @@ from .models import Feedback
 
 
 class FeedbackForm(forms.ModelForm):
-    
+    comment = forms.CharField(widget=forms.Textarea(attrs={'rows':6,'cols': 40,'style': 'resize:none;'}))
+
     class Meta:
         model = Feedback
         fields = '__all__'
