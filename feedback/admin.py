@@ -13,7 +13,8 @@ class FeedbackForm(forms.ModelForm):
 
 class FeedbackAdmin(ModelAdmin):
     form = FeedbackForm
+    search_fields = ('name', 'category', 'email', 'subject')
     list_display = ('name', 'category', 'email', 'subject', 'is_read')
-    list_editable = ('is_read')
+    list_editable = ('is_read',)
 
 admin.site.register(Feedback, FeedbackAdmin)
