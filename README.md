@@ -97,3 +97,5 @@ DATABASES = {
 * To overide the results of our data from string representations to the actual data, modify the class from `models.py`. Restart and run the code above again in the shell.
 * Look at other examples of queries in the `django-queries.md` file.
 
+#### Django - Admin
+* Register Django admin for our EMS data. 
