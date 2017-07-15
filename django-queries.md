@@ -1,6 +1,6 @@
 ### Examples of CRUD Queries performed in the Django Shell 
 
-##### *Reading data*
+##### *1.Reading data*
 
 * Filtering Data - (case sensitive)
 ```python
@@ -58,7 +58,7 @@ or
 ...     print "Sorry! Record not found"
 ```
 
-##### *Updating data in our database*
+##### *2.Updating data in our database*
 ```python
 >>> employeeObj = Employee.objects.get(pk=10001)
 >>> employeeObj.first_name = 'Tim'
@@ -71,7 +71,7 @@ or
 >>> Employee.objects.filter(first_name='Tim').update(first_name='Timothy')
 ```
 
-##### *Creating Records*
+##### *3.Creating Records*
 
 ```python
 >>> from feedback.models import Feedback
@@ -87,7 +87,7 @@ or
 ...     print obj.name
 ``` 
 
-##### *Removing / Deleting Records*
+##### *4.Removing / Deleting Records*
 
 ```python
 >>> Employee.objects.filter(first_name='Tim').delete()
