@@ -23,6 +23,18 @@ class FeedbackForm(forms.ModelForm):
         fields = '__all__'
 
 
+# Custom dropdown action
+def mark_feedback_as_read(modeladmin, request, queryset):
+    for employeeFeedback in queryset:
+        employeeFeedback.is_read = True
+        employeeFeedback.save()
+    # add message pop up
+    modeladmin.message_user(request,"%s successfully marked as read" % len(queryset))
+
+
+# rename our custom selection
+mark_feedback_as_read.short_description = "Mark selected as read"
+
 class FeedbackAdmin(ModelAdmin):
     form = FeedbackForm
     search_fields = ('name', 'category', 'email', 'subject')
@@ -32,6 +44,7 @@ class FeedbackAdmin(ModelAdmin):
     # button placement
     # save_on_top = True
     # actions_on_bottom = False
+    actions = [mark_feedback_as_read]
 
 # below to place standard size for all text-areas etc
     """

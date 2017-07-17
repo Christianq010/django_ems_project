@@ -100,3 +100,4 @@ DATABASES = {
 #### Django - Admin
 * Register Django admin for our EMS data.
 * Edit custom fields on our admin page to reflect feedback model.
+* Create msg box for editing record using custom fields.
