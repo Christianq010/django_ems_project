@@ -101,3 +101,7 @@ DATABASES = {
 * Register Django admin for our EMS data.
 * Edit custom fields on our admin page to reflect feedback model.
 * Create msg box for editing record using custom fields.
+
+##### *Django - Validators*
+* docs - https://docs.djangoproject.com/en/1.11/ref/validators/
+* 
