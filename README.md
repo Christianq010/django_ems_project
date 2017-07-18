@@ -106,3 +106,4 @@ DATABASES = {
 * docs - https://docs.djangoproject.com/en/1.11/ref/validators/
 * Use Django's built in validation for email , max_length etc for our form element. 
 * Skip Django Create Custom validators tutorial.
+* Add admin custom list filters for employee data.
