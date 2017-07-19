@@ -126,3 +126,9 @@ DATABASES = {
 
 ##### *Django - Custom Admin Header*
 * Add our custom admin site to our project to change text.
+
+
+#### Django - URL Configurations & Response Views
+*Function based View* -
+* Add URL `http://127.0.0.1:8000/employees/1101/profile/`.
+ 
