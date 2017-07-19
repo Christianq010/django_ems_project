@@ -20,5 +20,6 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^employees/(?P<pk>[0-9]+)/profile/$', views.my_profile, name='myems'),
+    url(r'^employees/(?P<pk>[0-9]+)/profile/$', views.my_profile, name='my_profile'),
+    url(r'^$', views.index),
 ]

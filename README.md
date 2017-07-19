@@ -131,4 +131,5 @@ DATABASES = {
 #### Django - URL Configurations & Response Views
 *Function based View* -
 * Add URL `http://127.0.0.1:8000/employees/1101/profile/`.
+* Creare index URL and render with template
  
