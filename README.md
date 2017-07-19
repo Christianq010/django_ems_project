@@ -111,3 +111,9 @@ DATABASES = {
 ##### *Django - User View Permissions*
 * Add permissions to addional users to be able to edit data.
 * Add users - test, test_2, password-Number@123456
+* To Add [Django-view-permissions extension](https://github.com/ctxis/django-admin-view-permission).
+* Add `admin_view_permission` to our `settings.py` to install.
+* Run `pip install django-admin-view-permission`.
+* Update `requirements.txt` with `pip freeze > requirements.txt`.
+* Run `python manage.py migrate`. If migrations issues exist run `python manage.py migrate --fake-initial`.
+* Add our User to a Group to only be able to read Data.
