@@ -123,3 +123,6 @@ DATABASES = {
 * Run `pip install django-flat-responsive`.
 * Add `'flat_responsive',` to our installed apps in `settings.py`.
 * To further on the styling add our styling to `venv/Lib/site-packages/flat-responsive/templates/admin/base.html`.
+
+##### *Django - Custom Admin Header*
+* Add our custom admin site to our project to change text.

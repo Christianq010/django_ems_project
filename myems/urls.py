@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+# Change our site title, text
+admin.site.site_header = "Test 1"
+admin.site.site_title = "Test 2"
+admin.site.site_url = "Test 3"
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
