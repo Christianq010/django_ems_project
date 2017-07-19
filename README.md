@@ -107,3 +107,7 @@ DATABASES = {
 * Use Django's built in validation for email , max_length etc for our form element. 
 * Skip Django Create Custom validators tutorial.
 * Add admin custom list filters for employee data.
+
+##### *Django - User View Permissions*
+* Add permissions to addional users to be able to edit data.
+* Add users - test, test_2, password-Number@123456
