@@ -117,3 +117,9 @@ DATABASES = {
 * Update `requirements.txt` with `pip freeze > requirements.txt`.
 * Run `python manage.py migrate`. If migrations issues exist run `python manage.py migrate --fake-initial`.
 * Add our User to a Group to only be able to read Data.
+
+##### *Django - Responsive*
+* Install the following package to make our Admin view responsive [Django-Flat-Responsive](https://github.com/elky/django-flat-responsive).
+* Run `pip install django-flat-responsive`.
+* Add `'flat_responsive',` to our installed apps in `settings.py`.
+* To further on the styling add our styling to `venv/Lib/site-packages/flat-responsive/templates/admin/base.html`.
