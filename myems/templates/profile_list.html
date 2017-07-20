@@ -1,0 +1,58 @@
+{% extends 'myems_base.html' %}
+
+
+{% block container %}
+
+
+<h3 class="title">All Employees</h3>
+
+<div id="menu">
+    <ul>
+        <li><a class="btn right" href="{% url 'index' %}">Home</a></li>
+        <li><a class="btn right" href="{% url 'profile_create' %}">Create Profile</a></li>
+    </ul>
+</div>
+
+<div class="collection">
+    <table id="employee_list">
+        <tr>
+            <th>Emp No</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Update Action</th>
+            <th>Delete Action</th>
+        </tr>
+        {% for employee in employee_list %}
+        <tr>
+            <td>
+                <a class="collection-item" href="{% url 'my_profile' employee.emp_no %}">{{employee.emp_no}}</a>
+            </td>
+            <td>{{employee.first_name}}</td>
+            <td>{{employee.last_name}}</td>
+            <td><a class="btn right" href="{% url 'my_profile_update' employee.emp_no %}">Update</a></td>
+            <td><a class="btn right" href="{% url 'my_profile_delete' employee.emp_no %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% if is_paginated %}
+<ul class="pagination center-align">
+    {% if page_obj.has_previous %}
+    <li class="waves-effect">
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    </li>
+    {% endif %}
+    <li class="waves-effect">
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+    </li>
+    {% if page_obj.has_next %}
+    <li class="waves-effect">
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
+
+
+{% endblock %}

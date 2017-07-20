@@ -31,6 +31,11 @@ class Employee(models.Model):
         db_table = 'employees'
 
 
+def generate_next_emp_no():
+        return 1 if Employee.objects.all().count() == 0 else Employee.objects.all().aggregate(Max('emp_no'))['emp_no__max'] + 1
+
+
+
 class Departments(models.Model):
     dept_no = models.CharField(primary_key=True, max_length=4)
     dept_name = models.CharField(unique=True, max_length=40)

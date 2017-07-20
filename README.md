@@ -132,4 +132,9 @@ DATABASES = {
 *Function based View* -
 * Add URL `http://127.0.0.1:8000/employees/1101/profile/`.
 * Creare index URL and render with template
+
+*Class based View & Generic* - 
+*  Difference in design pattern (http method)
+* Add templates and add URLS for CRUD operations on employee data.
+
  
