@@ -7,7 +7,42 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from __future__ import unicode_literals
 
+import os
+
 from django.db import models
+from django.db.models import Max
+
+
+from django.core.files.storage import FileSystemStorage
+from stdimage.models import StdImageField
+
+
+class LocalFileSystemStorage(FileSystemStorage):
+
+    def get_available_name(self, name, max_length=None):
+        if os.path.exists(self.path(name)):
+            # check if thumb nails removed also
+            os.remove(self.path(name))
+        return name
+
+
+fs = LocalFileSystemStorage()
+
+
+class Departments(models.Model):
+    dept_no = models.CharField(primary_key=True, max_length=4)
+    dept_name = models.CharField(unique=True, max_length=40)
+
+    class Meta:
+        db_table = 'departments'
+
+    def __str__(self):
+        return "dept_no=%s,dept_name=%s" % (self.dept_no, self.dept_name)
+
+
+# Define path for each profile image uploaded
+def upload_path_handler(self, filename):
+    return u'profile/user_{id}/{file}'.format(id=self.pk, file=filename)
 
 
 class Employee(models.Model):
@@ -23,6 +58,13 @@ class Employee(models.Model):
     last_name = models.CharField(max_length=16)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     hire_date = models.DateField()
+    departments = models.ManyToManyField(Departments, related_name='departments', through='DeptEmp')
+    hire_date = models.DateField()
+    image = StdImageField(upload_to=upload_path_handler, null=True, blank=True, max_length=255, variations={
+        'large': (600, 400),
+        'thumbnail': (100, 100, True),
+        'medium': (300, 200),
+    })
 
     def __str__(self):
         return "first_name=%s, last_name=%s" % (self.first_name, self.last_name)
@@ -34,14 +76,6 @@ class Employee(models.Model):
 def generate_next_emp_no():
         return 1 if Employee.objects.all().count() == 0 else Employee.objects.all().aggregate(Max('emp_no'))['emp_no__max'] + 1
 
-
-
-class Departments(models.Model):
-    dept_no = models.CharField(primary_key=True, max_length=4)
-    dept_name = models.CharField(unique=True, max_length=40)
-
-    class Meta:
-        db_table = 'departments'
 
 
 class DeptEmp(models.Model):

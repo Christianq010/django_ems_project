@@ -140,3 +140,11 @@ DATABASES = {
  
 #### Django - Templates
 * Render the material design template with django and edit settings and import the right packages. 
+
+
+#### Django - Add Images to our DB
+* [Django STD -image] (https://github.com/codingjoe/django-stdimage)
+* Install with `pip install django-stdimage`.
+* Add `'stdimage'` to `installed_apps` in `settings.py`.
+* Update with `pip freeze > requirements.txt`.
+* Run `makemigrations` and then `migrate` because we have updated models.
