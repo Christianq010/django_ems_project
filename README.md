@@ -138,3 +138,5 @@ DATABASES = {
 * Add templates and add URLS for CRUD operations on employee data.
 
  
+#### Django - Templates
+* Render the material design template with django and edit settings and import the right packages. 

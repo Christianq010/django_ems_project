@@ -1,3 +1,4 @@
+<!-- Django loads up our static files -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Myems</a>
+      <a id="logo-container" href="{% url 'index' %}" class="brand-logo">Myems</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'profile_list' %}">Directory</a></li>
         <li><a href="{% url 'my_profile' '10001' %}">My Profile</a></li>
