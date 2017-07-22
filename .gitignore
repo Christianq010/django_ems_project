@@ -1,0 +1,9 @@
+venv/
+.vscode
+
+myems/settings.py
+
+myems/migrations/
+feedback/migrations/
+staticfiles/
+*.pyc
