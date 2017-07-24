@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^employees/profile/create/$', views.ProfileCreateView.as_view(), name='profile_create'),
     url(r'^employees/(?P<pk>[0-9]+)/profile/update/$', views.ProfileUpdateView.as_view(), name='my_profile_update'),
     url(r'^employees/(?P<pk>[0-9]+)/profile/delete/$', views.ProfileDeleteView.as_view(), name='my_profile_delete'),
+    url(r'^employees/stats/$', views.employee_dept_stats, name='employee_dept_stats'),
 ]
 
 if settings.DEBUG:

@@ -3,9 +3,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.db.models import Count,  F
 
 from .forms import EmployeeForm
-from .models import Employee, Salaries, generate_next_emp_no
+from .models import Employee, Salaries, generate_next_emp_no, DeptEmp
 
 
 # Function based View
@@ -123,3 +124,15 @@ class ProfileUpdateView(UpdateView):
 	model = Employee
 	form_class = EmployeeForm
 	success_url = reverse_lazy('profile_list')
+
+
+def employee_dept_stats(request):
+	"""
+	This is what Django will do based on the query below. Count and group all employees by department
+	select dept_name,count(dp_emp.emp_no) as total from dept_emp dp_emp inner join departments dp on 
+	dp_emp.dept_no = dp.dept_no group by dept_name; 
+	F object expression allows us to convert the dictionary key dept_no__dept_name to something more meaning i.e department_name 
+	hence we can then do this empDepartments[0].get('department_name')
+	"""
+	empDepartments = DeptEmp.objects.all().values('dept_no__dept_name').annotate(total=Count('id'), department_name=F('dept_no__dept_name')).order_by('total')
+	return render(request, 'employee_dept_stats.html', {'empDepartments': empDepartments})

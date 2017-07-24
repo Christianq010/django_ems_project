@@ -45,14 +45,15 @@ class EmployeeAdmin(admin.ModelAdmin):
     list_display_links = ('emp_no',)
     # django filter
     list_filter = ('hire_date', GenderFilter, DepartmentFilter,)
-    inlines = [SalaryTableInline]
     save_on_top = True
+    inlines = [SalaryTableInline]
     actions_on_bottom = False
     list_per_page = 1001
     ordering = ('-hire_date',)
 
     def image_thumbnail(self, obj):
     		return mark_safe('<img src="%s"/>' % (obj.image.thumbnail.url if obj.image else self.placeholder))
+    
     image_thumbnail.short_description = 'Profile Image'
 
 
