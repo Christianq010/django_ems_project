@@ -148,3 +148,7 @@ DATABASES = {
 * Add `'stdimage'` to `installed_apps` in `settings.py`.
 * Update with `pip freeze > requirements.txt`.
 * Run `makemigrations` and then `migrate` because we have updated models.
+
+#### Deploying to Heroku
+* Install Heroku CLI via Installer or npm with `npm install -g heroku-cli`.
+* Verify installation with `heroku --version`.
