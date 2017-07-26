@@ -149,6 +149,14 @@ DATABASES = {
 * Update with `pip freeze > requirements.txt`.
 * Run `makemigrations` and then `migrate` because we have updated models.
 
+
 #### Deploying to Heroku
 * Install Heroku CLI via Installer or npm with `npm install -g heroku-cli`.
 * Verify installation with `heroku --version`.
+* Add static folder and use run `python manage.py collectstatic`.
+* Add [Whitenoise Django](https://github.com/evansd/whitenoise) to serve static files when debug mode is off for production. Run `pip install whitenoise`.
+* Whitenoise Django docs - [http://whitenoise.evans.io/en/stable/django.html].
+* Install Gunicorn Production server with `pip install gunicorn`.
+* Install `pip install dj-database-url`.
+* Update with `pip freeze > requirements.txt`.
+* Add `runtime.txt` and `Procfile`.

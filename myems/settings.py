@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,24 +24,31 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'e5pal*ra&$5z2!u8oyr9h1a@(*26fm32+_y5p7uy-15%%m+yeo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'stdimage',
+    'flat_responsive',
+    'admin_view_permission',
+    'feedback',
+    'myems',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -75,8 +83,13 @@ WSGI_APPLICATION = 'myems.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {'options': '-c search_path=public'},
+        'NAME': 'employees',
+        'USER': 'postgres',
+        'PASSWORD': 'Chrisq1992',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -117,4 +130,42 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+
+MEDIA_URL = '/images/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Update database configuration with $DATABASE_URL
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Logging configuration.
+LOGGING = {
+    "version": 1,
+    # Don't throw away default loggers.
+    "disable_existing_loggers": False,
+    "handlers": {
+        # Redefine console logger to run in production.
+        "console": {
+            "level": "INFO",
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        # Redefine django logger to use redefined console logging.
+        "django": {
+            "handlers": ["console"],
+        }
+    }
+}
+
+# Disable default limit of 1000 fields per request. Needed for bulk deletion of objects
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 100

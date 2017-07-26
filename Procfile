@@ -1,0 +1,1 @@
+web: gunicorn myems.wsgi --log-file -
