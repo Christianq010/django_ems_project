@@ -1,5 +1,7 @@
 ## Udemy - Create a CRUD Django App 
 
+*Hosted via Heroku at* -  https://myems-project.herokuapp.com/
+
 ### Getting Set up
 
 ### Installations
@@ -150,7 +152,8 @@ DATABASES = {
 * Run `makemigrations` and then `migrate` because we have updated models.
 
 
-#### Deploying to Heroku
+### Deploying to Heroku
+#### Setting up
 * Install Heroku CLI via Installer or npm with `npm install -g heroku-cli`.
 * Verify installation with `heroku --version`.
 * Add static folder and use run `python manage.py collectstatic`.
@@ -160,3 +163,13 @@ DATABASES = {
 * Install `pip install dj-database-url`.
 * Update with `pip freeze > requirements.txt`.
 * Add `runtime.txt` and `Procfile`.
+
+#### Deployment
+* Log in to Heroku via `heroku login`.
+* Make sure you have a `git` repo initialized.
+* Create heroku app with `heroku create myems`.
+* Open app with `heroku open`.
+* To configure our Db - `heroku config`
+* To link up our Db to Heroku use `heroku pg:backups restore "https://www.dropbox.com/s/wsdftd8021xx9ew/employee_db_small_heroku_final.backup?dl=1" --confirm myems-project`
+* To verify use `heroku pg:psql` and type `select (*) from employees;`.
+* Check hosted link.
