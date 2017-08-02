@@ -173,3 +173,7 @@ DATABASES = {
 * To link up our Db to Heroku use `heroku pg:backups restore "https://www.dropbox.com/s/wsdftd8021xx9ew/employee_db_small_heroku_final.backup?dl=1" --confirm myems-project`
 * To verify use `heroku pg:psql` and type `select (*) from employees;`.
 * Check hosted link.
+
+### Deploying to Amazon S3
+#### Setting up
+* 
