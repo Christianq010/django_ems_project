@@ -14,7 +14,9 @@
 * psycorpg - http://initd.org/psycopg/
 
 #### Setting up our Database
-* 
+* Open `pgAdmin`, on our Databases right click and create `New Database..`
+* Restore the database and navigate to our database file from the resources of the tutorial.
+* Explore the database by viewing tables and its data.
 
 #### Virtual Environment - virtualenv 
 * Create our virtual environment to install python packages just for this project in a folder we can name as `venv` with `virtualenv venv`.
